@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<header>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splice web</title>
+    <!--splice-->
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+    <!--choose file show image-->
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--end choose file show image-->
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="css/cssAdmin/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="css/cssAdmin/font-awesome.css" rel="stylesheet"/>
+    <!-- CUSTOM STYLES-->
+    <link href="css/cssAdmin/res.css" rel="stylesheet">
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <!--end splice-->
+
+    <link rel="stylesheet" href="css/cssAdmin/wizard/normalize.css">
+    <!--del main.css-->
+    <link rel="stylesheet" href="css/canvas.css">
+    <link rel="stylesheet" href="css/uploadFile.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="js/uploadFile.js"></script>
+
+    <!--button for this page-->
+    <script src="js/jscolor.js"></script>
+
+    <style>
+        article, aside, figure, footer, header, hgroup,
+        menu, nav, section { display: block; }
+
+        #textDefaultPage1
+        {
+            z-index:100;
+            position:absolute;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+            text-align: center;
+            left:60px;
+            top:113px;
+        }
+
+        #textDefaultPage2
+        {
+            z-index:100;
+            position:absolute;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+            text-align: center;
+            left:70px;
+            top:230px;
+        }
+
+        #textDefaultPage3
+        {
+            z-index:100;
+            position:absolute;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+            text-align: center;
+            left:55px;
+            top:333px;
+        }
+
+        #enableBlutooth
+        {
+            z-index:100;
+            position:absolute;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+            text-align: center;
+            left:80px;
+            top:180px;
+        }
+
+        #enableNoti
+        {
+            z-index:100;
+            position:absolute;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+            text-align: center;
+            left:75px;
+            top:280px;
+        }
+
+        #go
+        {
+            z-index:100;
+            position:absolute;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+            text-align: center;
+            left:120px;
+            top:400px;
+        }
+    </style>
+
+
+    </head>
+
+    <body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../pizza/chief/index.html">Welcome to</a>
+            </div>
+            <div style="color: white;
+                padding: 0px 50px 5px 50px;
+                float: left;
+                font-size: 16px;">
+                <h3>Interactive Museum Application</h3>
+
+
+            </div>
+
+            <div style="color: white;
+                padding: 15px 50px 5px 50px;
+                float: right;
+                font-size: 16px;">
+                <a href="login.html" class="btn btn-info square-btn-adjust">Logout</a>
+            </div>
+
+        </nav>
+        <!-- /. NAV TOP  -->
+
+
+
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <img src="/img/icon.png" class="user-image img-responsive">
+                    </li>
+
+
+
+                    <li><a href="index.html">LOGO</a></li>
+                    <li><a class="active" href="default.html">DEFAULT</a></li>
+                    <li><a href="map.html">MAP</a></li>
+                    <li><a href="testContent.php">CONTENT</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a href="audio.html">AUDIO</a></li>
+                    <li><a href="uuid.html">UUID</a></li>
+                    <li><a href="arqr.html">QR & AR</a></li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="page-head-line">Default</h2>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr/>
+
+                <div class="row">
+                    <!--left 5-->
+                    <div class="col-md-5">
+                        <div class="portfolio-item awesome mix_all" data-cat="awesome" >
+                            <img id="myImg" src="/img/default.png" class="img-responsive " alt="" width="280" height="550"/>
+                            <p id="textDefaultPage1">
+                                For the best experience, <br>
+                                tap to allow these features
+                            </p>
+
+                            <p id="textDefaultPage2">
+                                To see what's near by
+                            </p>
+
+                            <p id="textDefaultPage3">
+                                To make you don't miss <br> the things you want to see
+                            </p>
+
+                            <p id="enableBlutooth">
+
+                                <button id="styleInput" class="btn btn-inverse class="jscolor {valueElement:null,value:"898989"}" ><i class="glyphicon glyphicon-home"></i>Enable Bluetooth  ✓</button>
+                            </p>
+
+                            <p id="enableNoti">
+                                <button id="styleInput2" class="btn btn-inverse class="jscolor {valueElement:null,value:"b9b6b6"}" ><i class="glyphicon glyphicon-bell"></i>Enable Notification  ✓</button>
+                            </p>
+
+                            <p id="go">
+                                <button type="submit" class="btn btn-default">Let's go</button>
+                            </p>
+                        </div>
+                        <!--mockup phone-->
+                        <!--กรอบในไอโฟน-->
+                        <canvas id="bgCanvas"  width="237" height="423" style="border:1px solid #000000; position:absolute; top:70px; left:36px;">
+                            Your browser does not support the HTML5 canvas tag.</canvas>
+                        <canvas id="logoCanvas"  width="50" height="50" style=" position:absolute; top:121px; left:37px;">
+                            Your browser does not support the HTML5 canvas tag.</canvas>
+                    </div>
+                    <!--end left-->
+
+                    <!--right 7-->
+                    <div class="col-md-7">
+                        <form action="uploadMap.php" method="POST" enctype="multipart/form-data">
+
+                            <!--bg-->
+                            <div class="row">
+                                <label>Background image</label>
+                                <input type="file" id="image_upload_path" name="image"/>
+                            </div>
+                            <hr/>
+                            <!--enable-->
+                            <div class="row">
+                                <label>Enable button color</label>
+                                </br>
+                                <button class="btn btn-info jscolor {valueElement:'enable', styleElement:'styleInput' , }" >Select color
+                                </button>
+                                <input type="text" id="enable" name="enable" value="898989"><br>
+                            </div>
+
+                            <hr/>
+                            <!--unable-->
+                            <div class="row">
+                                <label>Unable button color</label>
+                                </br>
+                                <button class="btn btn-info jscolor {valueElement:'unable', styleElement:'styleInput2' , }  ">Select color
+                                </button>
+                                <input type="text" id="unable" name="unable" value="b9b6b6"><br>
+                            </div>
+                            <hr/>
+                            <div class="row" id="uploadedImages">
+
+                            </div>
+                            <input class="btn btn-info submit1" type="button" onclick="changeText2()" value="Upload">
+
+                        </form>
+                        <progress style="display: none;" value="237988" max="237988"> </progress>
+                        <div id="errorMsg"></div>
+                    </div>
+                    <!--end right-->
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+
+
+        <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/circleCanvas.js"></script>
+
+        <!--js from pizza-->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="js/jquery.metisMenu.js"></script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="js/custom.js"></script>
+        <!--end body-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            var list = document.getElementById('demo');
+
+            function changeText2() {
+//    var firstname = document.getElementById('firstname').value;
+//    document.getElementById('boldStuff2').innerHTML = firstname;
+//    var entry = document.createElement('li');
+//    entry.appendChild(document.createTextNode(firstname));
+//    list.appendChild(entry);
+
+                var data = {'image': $('#image_upload_path').val(), 'enable': $('#enable').val(), 'unable': $('#unable').val()};
+
+                console.log(new FormData(data));
+
+                var formData = new FormData($('form')[0]);
+
+                $.ajax({
+                    url: '/default.php',  //Server script to process data
+                    type: 'POST',
+                    xhr: function() {  // Custom XMLHttpRequest
+                        var myXhr = $.ajaxSettings.xhr();
+                        if(myXhr.upload){ // Check if upload property exists
+                            myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
+                        }
+                        return myXhr;
+                    },
+                    //Ajax events
+                    beforeSend: beforeSendHandler,
+//            success: completeHandler,
+                    error: errorHandler,
+                    // Form data
+                    data: formData,
+                    //Options to tell jQuery not to process data or worry about content-type.
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            }
+            function beforeSendHandler() {
+                $('progress').show();
+            }
+            //    function completeHandler(data) {
+            //        if (data.result) {
+            //            console.log('data.result[0]: ',data.result[0]);
+            //            if (data.result[0] == '/') {
+            //                var newImage = $('<img>',{
+            //                    class: 'thumbnail',
+            //                    src: data.result
+            //                });
+            //
+            //                var imageDetail = '<span>' + 'enable: ' + $('#enable').val() + '</span><br>';
+            //                imageDetail += '<span>' + 'unable: ' + $('#unable').val() + '</span>';
+            //
+            //                var closeLink = $('<span>', {class: "closeImage"});
+            //                var container = $('<span>').append(closeLink, newImage, imageDetail);
+            //
+            //                $('#enable').val('');
+            //                $('#unable').val('');
+            //                $('#image_upload_path').val('');
+            //
+            //
+            //                $('#uploadedImages').append(container);
+            //            }
+            //            else {
+            //                $('#errorMsg').html(data.result);
+            //            }
+            //        }
+            //        $('progress').hide();
+            //        console.log('completeHandler',data);
+            //    }
+            function errorHandler() {
+                console.log('completeHandler',arguments);
+            }
+            function progressHandlingFunction(e){
+                if(e.lengthComputable){
+                    $('progress').attr({value:e.loaded,max:e.total});
+                }
+            }
+            //handle clicking on the closeImage links
+            $(document).ready(function(readyEvent) {
+                $(document).click(function(clickEvent) {
+                    if ($(clickEvent.target).hasClass('closeImage')) {
+                        clickEvent.target.parentNode.remove();
+                    }
+                });
+            });</script>
+
+        <!-- END HERE -->
+        <script>
+
+            var c = document.getElementById("bgCanvas");
+            var ctx = c.getContext("2d");
+
+            var l = document.getElementById("logoCanvas");
+            var logoContext = l.getContext("2d");
+            logoContext.beginPath();
+            logoContext.arc(25, 25, 25, 0, 2 * Math.PI, false);
+            logoContext.clip();
+
+
+
+            <!--upload and show image in canvas bg-->
+
+            var imageLoader = document.getElementById('image_upload_path');
+            imageLoader.addEventListener('change', handleImage, false);
+            var canvas = document.getElementById('bgCanvas');
+            var ctx = canvas.getContext('2d');
+
+            function handleImage(e){
+                console.log("handleBG");
+
+                var reader = new FileReader();
+                reader.onload = function(event){
+                    var img = new Image();
+                    img.src = event.target.result;
+
+                    img.onload = function(){
+                        ctx.drawImage(img,0,0,img.width,img.height,0,0,236,413);
+                    }
+                }
+                reader.readAsDataURL(e.target.files[0]);
+            }
+
+            <!--upload and show image in canvas logo-->
+            var logoImageLoader = document.getElementById('logo');
+            logoImageLoader.addEventListener('change', handleImageLogo, false);
+
+            var logoCanvas = document.getElementById("logoCanvas");
+            var logoCanvasContext = logoCanvas.getContext("2d");
+
+            function handleImageLogo(e){
+                console.log("handleLogo");
+                var reader = new FileReader();
+                reader.onload = function(event){
+                    var img = new Image();
+                    img.src = event.target.result;
+                    img.onload = function(){
+                        logoCanvasContext.drawImage(img,0,0,50,50);
+                    }
+                }
+                reader.readAsDataURL(e.target.files[0]);
+            }
+
+
+        </script>
+
+
+
+    </body>
+</html>

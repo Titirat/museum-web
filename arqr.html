@@ -1,0 +1,311 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<header>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SPLICE WEBSITE</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--splice-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+    <!--choose file show image-->
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <meta charset=utf-8 />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--end choose file show image-->
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="css/cssAdmin/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="css/cssAdmin/font-awesome.css" rel="stylesheet"/>
+    <!--CUSTOM BASIC STYLES-->
+    <link href="css/cssAdmin/basic.css" rel="stylesheet"/>
+    <!--CUSTOM MAIN STYLES-->
+    <link href="css/cssAdmin/custom.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <!--end splice-->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/canvas.css">
+    <link rel="stylesheet" href="css/uploadFile.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="js/uploadFile.js"></script>
+
+
+    <!--button for this page-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/jscolor.js"></script>
+    <!--start sidebar-->
+
+
+    <style>
+        article, aside, figure, footer, header, hgroup,
+        menu, nav, section { display: block; }
+
+        .closeImage {
+            position: absolute;
+            float:left;
+            clear: none;
+            width:15px;
+            height:14px;
+            background:url(https://www.secretsof.com/images/close_x.png) no-repeat center center;
+        }
+
+        .thumbnail {
+            height: 100px;
+            width: auto;
+        }
+
+
+
+        #imageButton {
+            z-index: 100;
+            position: absolute;
+            color: black;
+            font-size: 13px;
+            text-align: center;
+            left: 255px;
+            top: 129px;
+        }
+
+
+        #uploadedImages {}
+
+
+
+
+    </style>
+    <!--sidebar-->
+
+</header>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+
+<script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script src="js/circleCanvas.js"></script>
+
+
+<!-- HERE -->
+
+<div id="fixedheader" class="w3-container w3-teal">
+    <div class="col-xs-8">
+        <h1>Interactive Museum Application</h1>
+    </div>
+    <div class="col-xs-3">
+        <button type="button" class="btn btn-info btn-lg">Log out</button>
+    </div>
+</div>
+
+<!--STARTsidebar-->
+
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul>
+            <li>
+                <div>
+                    <img src="/img/logo.png" class="img-thumbnail"/>
+
+                </div>
+
+            </li>
+            <li><a href="index.html">LOGO</a></li>
+            <li><a href="default.html">DEFAULT</a></li>
+            <li><a href="map.html">MAP</a></li>
+            <li><a href="testContent.php">CONTENT</a></li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="audio.html">AUDIO</a></li>
+            <li><a href="uuid.html">UUID</a></li>
+            <li><a class="active" href="arqr.html">QR & AR</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<div style="margin-left:10%; padding:1px; 16px;height:1000px;" id="bgcolor">
+    <div style=" margin-left:4%; margin-top:10%">
+        <div class="w3-row">
+            <div class="w3-third w3-container">
+
+
+            </div>
+        </div>
+    </div>
+
+<!--row-->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel-body">
+
+                <div class="w3-col m8 ">
+                    <h3>QR & AR</h3>
+                    <!--Floor map-->
+                    <form enctype="multipart/form-data">
+
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                <h5>Type</h5>
+                                <select  id="floor_level" name="floor_level">
+                                    <option value="1" selected> QR </option>
+                                    <option value="2">AR</option>
+                                </select>
+                            </div>
+
+                            <!--QR&AR name-->
+                            <div class="col-md-6 col-xs-2" id="name">
+                                <h5>Name</h5>
+                                <input class="form-control" type="text" id="contentNumber"  name="contentNumber" required="required" placeholder="QR & AR name">
+                            </div>
+
+                            <!--COL3-->
+                            <div class="col-md-4">
+                                <div class="row">
+                                <!--QR&AR code-->
+                                    <h5>QR or AR ode</h5>
+                                    <input type="file" id="image_upload_path" name="image" value="Choose QR or AR code">
+                                </div>
+                                <!--QR&AR image-->
+                                <div class="row">
+                                    <h5>Related image</h5>
+                                    <input type="file" id="qrarImage" name="qrarImage" value="Choose QR or AR image">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div id="uploadedImages"></div>
+
+                        <input type="button" onclick="changeText2()" value="Upload">
+                    </form>
+
+                    <progress style="display: none;" value="237988" max="237988"> </progress>
+                    <div id="errorMsg"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+</div>
+
+<!--ENDsidebar-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var list = document.getElementById('demo');
+
+    function changeText2() {
+//    var firstname = document.getElementById('firstname').value;
+//    document.getElementById('boldStuff2').innerHTML = firstname;
+//    var entry = document.createElement('li');
+//    entry.appendChild(document.createTextNode(firstname));
+//    list.appendChild(entry);
+
+        var data = {'image': $('#image_upload_path').val(), 'floor_level': $('#floor_level').val(), 'floor_name': $('#floor_name').val()};
+
+        console.log(new FormData(data));
+
+        var formData = new FormData($('form')[0]);
+
+        $.ajax({
+            url: '/uploadImage.php',  //Server script to process data
+            type: 'POST',
+            xhr: function() {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if(myXhr.upload){ // Check if upload property exists
+                    myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
+                }
+                return myXhr;
+            },
+            //Ajax events
+            beforeSend: beforeSendHandler,
+            success: completeHandler,
+            error: errorHandler,
+            // Form data
+            data: formData,
+            //Options to tell jQuery not to process data or worry about content-type.
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    }
+    function beforeSendHandler() {
+        $('progress').show();
+    }
+    function completeHandler(data) {
+        if (data.result) {
+            console.log('data.result[0]: ',data.result[0]);
+            if (data.result[0] == '/') {
+                var newImage = $('<img>',{
+                    class: 'thumbnail',
+                    src: data.result
+                });
+
+                var imageDetail = '<span>' + 'Floor level: ' + $('#floor_level').val() + '</span><br>';
+                imageDetail += '<span>' + 'Floor name: ' + $('#floor_name').val() + '</span>';
+
+                var closeLink = $('<span>', {class: "closeImage"});
+                var container = $('<span>').append(closeLink, newImage, imageDetail);
+
+                $('#floor_level').val(1);
+                $('#floor_name').val('');
+                $('#image_upload_path').val('');
+
+
+                $('#uploadedImages').append(container);
+            }
+            else {
+                $('#errorMsg').html(data.result);
+            }
+        }
+        $('progress').hide();
+        console.log('completeHandler',data);
+    }
+    function errorHandler() {
+        console.log('completeHandler',arguments);
+    }
+    function progressHandlingFunction(e){
+        if(e.lengthComputable){
+            $('progress').attr({value:e.loaded,max:e.total});
+        }
+    }
+    //handle clicking on the closeImage links
+    $(document).ready(function(readyEvent) {
+        $(document).click(function(clickEvent) {
+            if ($(clickEvent.target).hasClass('closeImage')) {
+                clickEvent.target.parentNode.remove();
+            }
+        });
+    });</script>
+<!-- END HERE -->
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<header>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SPLICE WEBSITE</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--splice-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="css/cssAdmin/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="css/cssAdmin/font-awesome.css" rel="stylesheet"/>
+    <!--CUSTOM BASIC STYLES-->
+    <link href="css/cssAdmin/basic.css" rel="stylesheet"/>
+    <!--CUSTOM MAIN STYLES-->
+    <link href="css/cssAdmin/custom.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <!--end splice-->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+
+    <!--start sidebar-->
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 10%;
+            background-color: #E8FAF6;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+
+        }
+
+        li a {
+            display: block;
+            text-align: center;
+            color: #00000;
+            padding: 15px 16px;
+            text-decoration: none;
+
+        }
+
+        li a.active {
+            background-color: #53BFBC;
+            color: white;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #95989A;
+            color: white;
+        }
+
+        #bgcolor {
+            background-color: #F4EDD1;
+        }
+
+        #fixedheader {
+            position: fixed;
+            margin-left: 10%;
+            width: 100%;
+            overflow: auto;
+        }
+        div button {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
+    </style>
+    <!--sidebar-->
+
+</header>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+
+<script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+
+<!-- HERE -->
+
+<div id="fixedheader" class="w3-container w3-teal">
+    <div class="col-xs-8">
+        <h1>Interactive Museum Application</h1>
+    </div>
+    <div class="col-xs-3">
+        <button type="button" class="btn btn-info btn-lg">Log out</button>
+    </div>
+</div>
+
+<!--STARTsidebar-->
+
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul>
+            <li>
+                <div>
+                    <img src="/img/logo.png" class="img-thumbnail"/>
+
+                </div>
+
+            </li>
+            <li><a href="index.html">LOGO</a></li>
+            <li><a href="default.html">DEFAULT</a></li>
+            <li><a href="map.html">MAP</a></li>
+            <li><a href="testContent.php">CONTENT</a></li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a class="active" href="audio.html">AUDIO</a></li>
+            <li><a href="uuid.html">UUID</a></li>
+            <li><a href="arqr.html">QR & AR</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+
+<div style="margin-left:10%; padding:1px; 16px;height:1000px;" id="bgcolor">
+    <div style=" margin-left:4%; margin-top:10%">
+        <h2>SPLICE HAVE TO FILL IN THIS AREA</h2>
+        <h3>BLANK AREA</h3>
+    </div>
+</div>
+
+<!--ENDsidebar-->
+
+
+<!-- END HERE -->
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function () {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>
+

@@ -1,0 +1,213 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var list = document.getElementById('demo');
+    function changeText2() {
+//    var firstname = document.getElementById('firstname').value;
+//    document.getElementById('boldStuff2').innerHTML = firstname;
+//    var entry = document.createElement('li');
+//    entry.appendChild(document.createTextNode(firstname));
+//    list.appendChild(entry);
+
+        var data = {'logo': $('#logo').val(), 'bg': $('#imageLoader').val(), 'name': $('#applicationName').val()};
+
+        console.log(new FormData(data));
+
+        var formData = new FormData($('form')[0]);
+
+        $.ajax({
+            url: '/uploadIndex.php',  //Server script to process data
+            type: 'POST',
+            xhr: function() {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if(myXhr.upload){ // Check if upload property exists
+                    myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
+                }
+                return myXhr;
+            },
+            //Ajax events
+            beforeSend: beforeSendHandler,
+            success: completeHandler,
+            error: errorHandler,
+            // Form data
+            data: formData,
+            //Options to tell jQuery not to process data or worry about content-type.
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    }
+    function beforeSendHandler() {
+        $('progress').show();
+    }
+    function completeHandler(data) {
+        //console.log(data.log);
+        if (data.result) {
+            console.log('data.result[0]: ',data.result[0]);
+            if (data.result[0] == '/') {
+                var newImage = $('<img>',{
+                    class: 'thumbnail',
+                    src: data.result
+                });
+                var imageDetail = '<span>' + 'logo: ' + $('#logo').val() + '</span><br>';
+
+                var closeLink = $('<span>', {class: "closeImage"});
+                var container = $('<span>').append(closeLink, newImage, imageDetail);
+
+                $('#logo').val('');
+                $('#imageLoader').val('');
+                $('#applicationName').val('');
+
+
+                $('#uploadedImages').append(container);
+            }
+            else {
+                $('#errorMsg').html(data.result);
+            }
+        }
+        $('progress').hide();
+        console.log('completeHandler',data);
+    }
+    function errorHandler() {
+        console.log('completeHandler',arguments);
+    }
+    function progressHandlingFunction(e){
+        if(e.lengthComputable){
+            $('progress').attr({value:e.loaded,max:e.total});
+        }
+    }
+</script>
+
+
+
+//ของยอง
+<?php
+define('ROOTPATH', __DIR__);
+
+$uploads_dir = ROOTPATH . '/home_dir';
+$output = array();
+
+
+
+if (empty($_POST['name']))
+    {
+        $output['result'] = 'missing name';
+    }
+else if (is_array($_FILES) && array_key_exists('image',$_FILES))
+    {
+    for ($i=0; $i<2; $i++)
+        {
+            $upload = $_FILES['image'][i];
+            if ($upload['error'] == UPLOAD_ERR_OK &&
+                    preg_match('#^image\/(png|jpg|jpeg|gif)$#',$upload['type']) && //ensure mime-type is image
+                    preg_match('#.(png|jpg|jpeg|gif)$#',$upload['name']) //ensure name ends in trusted extension)
+                    {
+                        $tmp_name = $upload["tmp_name"];
+                        $parts = explode('/',$upload['tmp_name']);
+                        $tmpName = array_pop($parts);
+                        if (i == 0) {
+                            $filename = $_POST['name'] . '_' . 'logo.' . pathinfo($upload["name"], PATHINFO_EXTENSION);
+                    }
+                else if (i = 1)
+                    {
+
+                        $filename = $_POST['name'] . '_' . 'bg.' . pathinfo($upload["name"], PATHINFO_EXTENSION);
+                    }
+                $appName  = $_POST['name'];
+                if (move_uploaded_file($tmp_name, "$uploads_dir/$filename"))
+                    {
+                        //after upload complete insert pic data into database
+                        //$con=mysqli_connect("localhost","root","root","museum");
+                        //if (mysqli_connect_errno()){echo "Failed to connect to MySQL: " . mysqli_connect_error();}
+                        //$sql = "INSERT INTO floor (floorNo, floorName) VALUES ('".$floorLevel."', '".$floorName."');";
+                        //if (!mysqli_query($con,$sql)) {
+                        //die('Error: ' . mysqli_error($con));
+                        //}
+                        //mysqli_close($con);
+                        $output['result'] = '/home_dir/' . $filename;
+                    }
+                else
+                    {
+                        $output['result'] = 'upload fail';
+                    }
+
+            }
+            else {
+                 $output['result'] = 'invalid image';
+            }
+        }
+    }
+else
+    {
+        $output['result'] = 'no file selected';
+    }
+
+header('Content-type: application/json');
+echo json_encode($output);
+echo json_encode('finish');
+?>
+
+
+
+
+
+//ของสไปร์แปปแค่บีจี
+$upload = $_FILES['image'];
+
+if ($upload['error'] == UPLOAD_ERR_OK &&
+preg_match('#^image\/(png|jpg|jpeg|gif)$#',$upload['type']) && //ensure mime-type is image
+preg_match('#.(png|jpg|jpeg|gif)$#',$upload['name']) //ensure name ends in trusted extension
+
+) {
+
+//echo json_encode($upload);
+$tmp_name = $upload["tmp_name"];
+
+// basename() may prevent filesystem traversal attacks;
+// further validation/sanitation of the filename may be appropriate
+$parts = explode('/', $upload['tmp_name']);
+$tmpName = array_pop($parts);
+
+// $name = $tmpName.'_'.basename($upload["name"]);
+$applicationName = $_POST['applicationName'];
+
+$filename = $applicationName . '.' . pathinfo($upload["name"], PATHINFO_EXTENSION);
+
+if (move_uploaded_file($tmp_name, "$uploads_dir/$filename")) {
+
+
+
+//after upload complete insert pic data into database
+$con = mysqli_connect("localhost","root","root","museum");
+
+if (!$con){
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+$sql = "INSERT INTO general (applicationName) VALUES ('" . $applicationName . "');";
+if (!mysqli_query($con, $sql)) {
+die('Error: ' . mysqli_error($con));
+}
+mysqli_close($con);
+
+$output['result'] = '/upload_dir/' . $filename;
+
+}
+else {
+$output['result'] = 'upload fail';
+}
+
+
+}
+else {
+$output['result'] = 'invalid image';
+}
+
+
+} else {
+$output['result'] = 'no file selected';
+}
+
+header('Content-type: application/json');
+echo json_encode($output);
+
+?>

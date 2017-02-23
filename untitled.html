@@ -1,0 +1,12 @@
+<?php
+	
+	<select name="owner">
+	<?php 
+	$con=mysqli_connect("localhost","root","root","museum");
+	$sql = mysqli_query("SELECT first_name FROM empinfo");
+	while ($row = $sql->fetch_assoc()){
+	echo "<option value=\"owner1\">" . $row['first_name'] . "</option>";
+	}
+	?>
+</select>
+?>
